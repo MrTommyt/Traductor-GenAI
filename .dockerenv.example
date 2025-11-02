@@ -1,0 +1,13 @@
+# Ejemplo de archivo .env para Docker
+# Copia este archivo a .env y completa con tus credenciales
+
+# API Key de OpenAI
+API_KEY=tu_api_key_aqui
+
+# URI del servidor MLflow
+# Para contenedores Docker en la misma red, usa el nombre del servicio
+MLFLOW_TRACKING_URI=http://mlflow-server:5000
+
+# Alternativamente, para desarrollo local:
+# MLFLOW_TRACKING_URI=http://localhost:5000
+
