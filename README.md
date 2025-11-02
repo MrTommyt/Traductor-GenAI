@@ -9,7 +9,7 @@ Sistema de traducción de texto utilizando modelos generativos de inteligencia a
 Check it out at:
 https://hub.docker.com/r/mrtommyt/traductor-genai
 
-![screenshot](/screenshots/Screenshot_2025-11-01-22-20-01_24570.png)
+![screenshot](/screenshots/Screenshot_2025-11-01-22-41-01_14277.png)
 
 ## Arquitectura del Sistema
 
