@@ -6,30 +6,35 @@
 
 Sistema de traducción de texto utilizando modelos generativos de inteligencia artificial (Gen-AI) a través de OpenAI GPT-4o mini, con interfaz web desarrollada en Gradio y tracking completo de interacciones mediante MLflow.
 
+Check it out at:
+https://hub.docker.com/r/mrtommyt/traductor-genai
+
+![screenshot](/screenshots/Screenshot_2025-11-01-22-20-01_24570.png)
+
 ## Arquitectura del Sistema
 
 El sistema implementa una arquitectura de microservicios en contenedores Docker independientes, sin utilizar docker-compose. La comunicación entre servicios se establece mediante una red Docker dedicada.
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                    Docker Network: translation-net          │
+│                    Docker Network: translation-net           │
 │                                                              │
-│  ┌─────────────────────────┐         ┌────────────────────┐ │
-│  │   translation-app       │         │   mlflow-server    │ │
-│  │   (Puerto 7860)         │         │   (Puerto 5000)    │ │
-│  │                         │         │                    │ │
-│  │  • Gradio UI            │◄───────►│  • MLflow Track    │ │
-│  │  • OpenAI SDK           │  HTTP   │  • SQLite Backend  │ │
-│  │  • MLflow Client        │         │                    │ │
-│  │                         │         │                    │ │
-│  └─────────────────────────┘         └────────────────────┘ │
+│  ┌─────────────────────────┐         ┌────────────────────┐  │
+│  │   translation-app       │         │   mlflow-server    │  │
+│  │   (Puerto 7860)         │         │   (Puerto 5000)    │  │
+│  │                         │         │                    │  │
+│  │  • Gradio UI            │◄───────►│  • MLflow Track    │  │
+│  │  • OpenAI SDK           │  HTTP   │  • SQLite Backend  │  │
+│  │  • MLflow Client        │         │                    │  │
+│  │                         │         │                    │  │
+│  └─────────────────────────┘         └────────────────────┘  │
 │           │                                      │           │
 └───────────┼──────────────────────────────────────┼───────────┘
             │                                      │
-    ┌───────┴────────┐                    ┌───────┴─────────┐
-    │ Host:7860      │                    │ Host:5000       │
-    │ (Acceso Web)   │                    │ (MLflow UI)     │
-    └────────────────┘                    └─────────────────┘
+    ┌───────┴────────┐                     ┌───────┴─────────┐
+    │ Host:7860      │                     │ Host:5000       │
+    │ (Acceso Web)   │                     │ (MLflow UI)     │
+    └────────────────┘                     └─────────────────┘
 ```
 
 ### Componentes
